@@ -25,6 +25,7 @@ body, html {
 }
 
 .join {
+    font-family: monospace;
     margin-top: 1rem;
     font-size: 1.5rem;
     color: #ffffff;
