@@ -1,0 +1,12 @@
+{
+    "version": "0.0.0",
+    "configurations": [
+      {
+        "name": "localhost (Chrome)",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:5173",
+        "webRoot": "${workspaceFolder}/src/webapp"
+      }
+    ]
+  }

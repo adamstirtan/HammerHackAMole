@@ -50,7 +50,10 @@ public class Program
         {
             options.AddPolicy("AllowFrontend", policy =>
             {
-                policy.WithOrigins("http://localhost:5173")
+                string frontendUrl = builder.Configuration["FrontendUrl"] ??
+                    throw new Exception("Frontend URL is missing.");
+
+                policy.WithOrigins(frontendUrl)
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();
@@ -74,8 +77,6 @@ public class Program
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
             c.RoutePrefix = string.Empty;
         });
-
-        //app.UseHttpsRedirection();
 
         app.MapHub<GameHub>("/game-hub", options =>
         {
