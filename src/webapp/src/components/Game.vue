@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="join">
-      <span class="subtle">https://</span>bit.ly/3z5Q7ZC
+      <span class="subtle">https://</span>tinyurl.com/36kjp7z4
     </div>
   </div>
 </template>
