@@ -2,11 +2,15 @@
 
 Welcome to the Whack-a-Mole Multiplayer Game! This project demonstrates a real-time, cross-platform game where players compete to “whack” appearing moles and earn points. Built with .NET MAUI and SignalR, this game allows players on both mobile and web clients to join in, creating an interactive and engaging multiplayer experience.
 
-![image](https://github.com/user-attachments/assets/2003d93e-d586-41f9-afbc-0842d1feb754)
+![ezgif-7-ff57e2d97c](https://github.com/user-attachments/assets/82ddb8d1-b50e-42f0-b81d-2afbdab41d80)
 
 ## HammerHacks
 
 This project was created for a presentation at HammerHacks on November 23rd 2024 at McMaster University. For more information, check out their website at https://hammerhacks.ca/
+
+### Slides
+
+https://docs.google.com/presentation/d/1aeYtibHjrEzUpBQKgHDC5TsjnNvwKAuyXmtJEMvtQ_0/edit?usp=sharing
 
 ## Technologies
 
