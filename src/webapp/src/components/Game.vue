@@ -4,6 +4,7 @@
 
   const score = ref(0);
   const moles = ref(Array(9).fill(false));
+  const whackSound = new Audio('whack.mp3');
   const baseUrl = import.meta.env.VITE_SIGNALR_URL;
   const connection = new signalR.HubConnectionBuilder()
     .withUrl(baseUrl)
@@ -35,6 +36,7 @@
       try {
         await connection.invoke('WhackMole');
         moles.value[index] = false;
+        whackSound.play();
       } catch (error) {
         console.error(error);
       }
