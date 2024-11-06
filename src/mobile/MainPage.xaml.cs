@@ -1,10 +1,14 @@
 ﻿using System.Timers;
+
+using Microsoft.AspNetCore.SignalR.Client;
+
 using Timer = System.Timers.Timer;
 
 namespace mobile;
 
 public partial class MainPage : ContentPage
 {
+    private readonly HubConnection _hubConnection;
     private readonly Random _random = new();
     private readonly ImageButton[] _moleButtons;
     
@@ -20,7 +24,26 @@ public partial class MainPage : ContentPage
             MoleButton0, MoleButton1, MoleButton2, MoleButton3, MoleButton4, MoleButton5, MoleButton6, MoleButton7, MoleButton8
         ];
         
+        _hubConnection = new HubConnectionBuilder()
+            .WithUrl("https://hammerhackamole-api.azurewebsites.net/game-hub")
+            .Build();
+
+        _hubConnection.On<int>("UpdateScore", OnUpdateScore);
+
+        StartHubConnection();
         StartGame();
+    }
+
+    private async void StartHubConnection()
+    {
+        try
+        {
+            await _hubConnection.StartAsync();
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+        }
     }
 
     private void StartGame()
@@ -44,16 +67,34 @@ public partial class MainPage : ContentPage
         });
     }
 
-    private void OnMoleClicked(object sender, EventArgs e)
+    private async void OnMoleClicked(object sender, EventArgs e)
     {
         ImageButton? clickedButton = sender as ImageButton;
-        
-        if (clickedButton?.Source != null)
+
+        if (clickedButton?.Source == null)
         {
-            clickedButton.Source = null;
-            
-            _score++;
-            ScoreLabel.Text = $"Score: {_score}";
+            return;
         }
+        
+        clickedButton.Source = null;
+
+        try
+        {
+            await _hubConnection.SendAsync("WhackMole");
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+        }
+    }
+    
+    private void OnUpdateScore(int newScore)
+    {
+        _score = newScore;
+
+        Dispatcher.Dispatch(() =>
+        {
+            ScoreLabel.Text = $"Score: {_score}";
+        });
     }
 }

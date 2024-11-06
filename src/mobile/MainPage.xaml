@@ -4,6 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="mobile.MainPage"
     Title="HammerHack-A-Mole">
+    
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#067a26" Offset="0.0" />
+            <GradientStop Color="#CCFF00" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
     <VerticalStackLayout Padding="20">
         <Label x:Name="ScoreLabel" Text="Score: 0" />
@@ -20,31 +27,31 @@
             </Grid.ColumnDefinitions>
 
             <Frame Grid.Row="0" Grid.Column="0">
-                <ImageButton x:Name="MoleButton0" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton0" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="0" Grid.Column="1">
-                <ImageButton x:Name="MoleButton1" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton1" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="0" Grid.Column="2" >
-                <ImageButton x:Name="MoleButton2" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton2" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="1" Grid.Column="0">
-                <ImageButton x:Name="MoleButton3" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton3" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="1" Grid.Column="1">
-                <ImageButton x:Name="MoleButton4" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton4" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="1" Grid.Column="2">
-                <ImageButton x:Name="MoleButton5" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton5" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="2" Grid.Column="0">
-                <ImageButton x:Name="MoleButton6" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton6" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="2" Grid.Column="1">
-                <ImageButton x:Name="MoleButton7" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton7" Clicked="OnMoleClicked" />
             </Frame>
             <Frame Grid.Row="2" Grid.Column="2">
-                <ImageButton x:Name="MoleButton8" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+                <ImageButton x:Name="MoleButton8" Clicked="OnMoleClicked" />
             </Frame>
         </Grid>
     </VerticalStackLayout>
