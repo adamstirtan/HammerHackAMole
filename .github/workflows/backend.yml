@@ -1,0 +1,41 @@
+name: "Deploy Backend to Azure"
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  WEBAPP_NAME: "hammerhackamole-api"
+  DOTNET_VERSION: "8.0"
+  DOTNET_INSTALL_DIR: "./.dotnet"
+  ASPNETCORE_ENVIRONMENT: "Production"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: false
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Build
+        run: dotnet build --nologo --configuration Release src/api/api.csproj
+
+      - name: Publish
+        run: dotnet publish --no-build --configuration Release src/api/api.csproj -o src/_publish_api
+
+      - name: Deploy API
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: src/_publish_api

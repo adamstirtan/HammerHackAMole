@@ -4,8 +4,9 @@
 
   const score = ref(0);
   const moles = ref(Array(9).fill(false));
+  const baseUrl = import.meta.env.VITE_SIGNALR_URL;
   const connection = new signalR.HubConnectionBuilder()
-    .withUrl('http://localhost:5107/game-hub')
+    .withUrl(baseUrl)
     .build();
 
   onMounted(async () => {
