@@ -8,6 +8,10 @@ Welcome to the Whack-a-Mole Multiplayer Game! This project demonstrates a real-t
 
 This project was created for a presentation at HammerHacks on November 23rd 2024 at McMaster University. For more information, check out their website at https://hammerhacks.ca/
 
+### Slides
+
+https://docs.google.com/presentation/d/1aeYtibHjrEzUpBQKgHDC5TsjnNvwKAuyXmtJEMvtQ_0/edit?usp=sharing
+
 ## Technologies
 
 - .NET MAUI: Cross-platform framework for building mobile applications (iOS and Android).
