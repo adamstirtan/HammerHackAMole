@@ -21,10 +21,4 @@ public class GameHub : Hub
         _score++;
         await Clients.All.SendAsync("UpdateScore", _score);
     }
-    
-    public async Task ResetScore()
-    {
-        _score = 0;
-        await Clients.All.SendAsync("UpdateScore", _score);
-    }
 }
