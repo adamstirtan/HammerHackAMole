@@ -5,25 +5,48 @@
     x:Class="mobile.MainPage"
     Title="HammerHack-A-Mole">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="mole.png"
-                HeightRequest="185"
-                Aspect="AspectFit" />
+    <VerticalStackLayout Padding="20">
+        <Label x:Name="ScoreLabel" Text="Score: 0" />
+        <Grid RowSpacing="20" ColumnSpacing="20" Margin="0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Label
-                Text="Single player isn't much fun. 😔"
-                Style="{StaticResource Headline}" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
+            <Frame Grid.Row="0" Grid.Column="0">
+                <ImageButton x:Name="MoleButton0" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="0" Grid.Column="1">
+                <ImageButton x:Name="MoleButton1" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="0" Grid.Column="2" >
+                <ImageButton x:Name="MoleButton2" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="1" Grid.Column="0">
+                <ImageButton x:Name="MoleButton3" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="1" Grid.Column="1">
+                <ImageButton x:Name="MoleButton4" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="1" Grid.Column="2">
+                <ImageButton x:Name="MoleButton5" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="2" Grid.Column="0">
+                <ImageButton x:Name="MoleButton6" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="2" Grid.Column="1">
+                <ImageButton x:Name="MoleButton7" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+            <Frame Grid.Row="2" Grid.Column="2">
+                <ImageButton x:Name="MoleButton8" Clicked="OnMoleClicked" BackgroundColor="Transparent" />
+            </Frame>
+        </Grid>
+    </VerticalStackLayout>
 
 </ContentPage>
