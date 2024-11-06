@@ -88,7 +88,7 @@ public class Program
             options.CloseOnAuthenticationExpiration = true;
             options.ApplicationMaxBufferSize = 65536;
             options.MinimumProtocolVersion = 0;
-        });
+        }).RequireCors("AllowFrontend");
 
         try
         {
