@@ -7,7 +7,7 @@
   const moles = ref(Array(16).fill(false));
   const soundEnabled = ref(false);
   const whackFileName = '/whack.mp3';
-  const timeLeft = ref(10);
+  const timeLeft = ref(15);
   const timerInterval = ref(null);
   const moleInterval = ref(null);
   const gameStarted = ref(false);
@@ -18,6 +18,21 @@
     .build();
 
   onMounted(async () => {
+    const cursor = document.getElementById('cursor');
+
+    window.addEventListener('mousemove', (event) => {
+      cursor.style.top = `${event.pageY}px`;
+      cursor.style.left = `${event.pageX}px`;
+    });
+
+    window.addEventListener('mousedown', () => {
+      cursor.classList.add('active');
+    });
+
+    window.addEventListener('mouseup', () => {
+      cursor.classList.remove('active');
+    });
+
     try {
       await connection.start();
 
@@ -31,7 +46,7 @@
 
   const startGame = () => {
     gameStarted.value = true;
-    timeLeft.value = 10;
+    timeLeft.value = 15;
     moles.value = Array(16).fill(false);
 
     clearInterval(timerInterval.value);
@@ -77,19 +92,20 @@
   <div class="container">
     <div v-if="gameStarted">
       <div class="score">
-        <span v-if="score">{{ score }} Moles Hacked 🔨</span>
+        <span v-if="score">{{ score }} Moles Whacked 🔨</span>
       </div>
       <div id="game">
         <div v-for="(mole, index) in moles" :key="index" class="hole" @click="whackMole(index)" v-if="!showRestartButton.value">
           <div v-if="mole" class="mole"></div>
         </div>
       </div>
-      <progress max="10" :value="timeLeft"></progress>
+      <progress max="15" :value="timeLeft"></progress>
       <div class="join">
         <span class="subtle">https://</span>tinyurl.com/36kjp7z4
       </div>
     </div>
     <button v-if="showRestartButton" @click="restartGame">Start Game</button>
+    <div id="cursor"></div>
   </div>
 </template>
 
