@@ -13,11 +13,9 @@
                 Source="mole.png"
                 HeightRequest="185"
                 Aspect="AspectFit" />
-
             <Label
                 Text="Single player isn't much fun. 😔"
-                Style="{StaticResource Headline}" />
-
+                HorizontalTextAlignment="Center" />
             <Button
                 x:Name="CounterBtn"
                 Text="Click me" 
